@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uptime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.uptimesoftware.com/erdc/erdc erdc"
+	xmlns="http://www.uptimesoftware.com/erdc/erdc"
+	xmlns:upt="http://www.uptimesoftware.com/erdc/erdc" version="4.0" target_grouping="other">
+	<class>JBoss Performance</class>
+	<exec>com.uptimesoftware.uptime.erdc.MonitorCustomScriptRunner</exec>
+	<elements>
+		<element name="process" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+			<control_options> size:40 </control_options>
+			<default_value>scripts/MonitorJBoss/MonitorJBoss.sh</default_value>
+			<short_description>Script Name</short_description>
+			<long_description>Name of the script/binary/process to be executed by up.time </long_description>
+			<validation_rule>
+				<alphanumeric/>
+			</validation_rule>
+			<error_message>
+				<alphanumeric>required field</alphanumeric>
+			</error_message>
+			<gui_type>
+				<string/>
+			</gui_type>
+		</element>
+                <element name="virtual_host" parameter_type="input" data_type="string" gui_basic="0" range_type="0">
+                        <control_options>size:40</control_options>
+                        <default_value/>
+                        <short_description>Virtual_Host</short_description>
+                        <long_description>JBoss Instance Virtual Hostname or IP address</long_description>
+                        <validation_rule/>
+                        <error_message/>
+                        <gui_type>
+                                <string/>
+                        </gui_type>
+                </element>
+                <element name="port" parameter_type="input" data_type="integer" gui_basic="1" range_type="0">
+                        <control_options>size:5</control_options>
+                        <default_value>8080</default_value>
+                        <short_description>Port</short_description>
+                        <long_description>The port that the JBoss server is listening on</long_description>
+                        <validation_rule>
+                                <integer/>
+                        </validation_rule>
+                        <error_message>
+                                <integer>The port must be an integer value</integer>
+                        </error_message>
+                        <gui_type>
+                                <integer/>
+                        </gui_type>
+                </element>
+                <element name="uri" parameter_type="input" data_type="string" gui_basic="1" range_type="0">
+                        <control_options>size:40</control_options>
+                        <default_value>/status?full=true</default_value>
+                        <short_description>URI</short_description>
+                        <long_description>A string to send to the JBoss server (e.g. /status?full=true)</long_description>
+                        <validation_rule/>
+                        <error_message/>
+                        <gui_type>
+                                <string/>
+                        </gui_type>
+                </element>
+			<group name="g_freeMemory" switch="0">
+			<short_description>freeMemory</short_description>
+			<long_description>Array</long_description>
+			<element name='freeMemory' parameter_type='output' data_type='decimal'
+			gui_basic='1' range_type='0' units='MB'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>freeMemory</short_description>
+				<long_description>freeMemory</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>
+		<group name="g_totalMemory" switch="0">
+			<short_description>totalMemory</short_description>
+			<long_description>Array</long_description>
+			<element name='totalMemory' parameter_type='output' data_type='decimal'
+			gui_basic='1' range_type='0' units='MB'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>totalMemory</short_description>
+				<long_description>totalMemory</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>
+		<group name="g_maxMemory" switch="0">
+			<short_description>maxMemory</short_description>
+			<long_description>Array</long_description>
+			<element name='maxMemory' parameter_type='output' data_type='decimal'
+			gui_basic='1' range_type='0' units='MB'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>maxMemory</short_description>
+				<long_description>maxMemory</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>	
+		<group name="g_maxThreads" switch="0">
+			<short_description>maxThreads</short_description>
+			<long_description>Array</long_description>
+			<element name='maxThreads' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='nbr'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>maxThreads</short_description>
+				<long_description>maxThreads</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>
+		<group name="g_minSpareThreads" switch="0">
+			<short_description>minSpareThreads</short_description>
+			<long_description>Array</long_description>
+			<element name='minSpareThreads' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='nbr'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>minSpareThreads</short_description>
+				<long_description>minSpareThreads</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>
+	<group name="g_maxSpareThreads" switch="0">
+			<short_description>maxSpareThreads</short_description>
+			<long_description>Array</long_description>
+			<element name='maxSpareThreads' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='nbr'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>maxSpareThreads</short_description>
+				<long_description>maxSpareThreads</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>		
+			<group name="g_currentThreadCount" switch="0">
+			<short_description>keepAliveCount</short_description>
+			<long_description>Array</long_description>
+			<element name='currentThreadCount' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='nbr'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>currentThreadCount</short_description>
+				<long_description>currentThreadCount</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>
+		<group name="g_currentThreadBusy" switch="0">
+			<short_description>currentThreadBusy</short_description>
+			<long_description>Array</long_description>
+			<element name='currentThreadBusy' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='nbr'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>currentThreadBusy</short_description>
+				<long_description>currentThreadBusy</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>		
+		<group name="g_maxProcessingTime" switch="0">
+			<short_description>maxProcessingTime</short_description>
+			<long_description>Array</long_description>
+			<element name='maxProcessingTime' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='ms'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>maxProcessingTime</short_description>
+				<long_description>maxProcessingTime</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>		
+		<group name="g_processingTime" switch="0">
+			<short_description>processingTime</short_description>
+			<long_description>Array</long_description>
+			<element name='processingTime' parameter_type='output' data_type='decimal'
+			gui_basic='1' range_type='0' units='ms'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>processingTime</short_description>
+				<long_description>processingTime</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>		
+		<group name="g_requestCount" switch="0">
+			<short_description>requestCount</short_description>
+			<long_description>Array</long_description>
+			<element name='requestCount' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='nbr'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>requestCount</short_description>
+				<long_description>requestCount</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>		
+		<group name="g_errorCount" switch="0">
+			<short_description>errorCount</short_description>
+			<long_description>Array</long_description>
+			<element name='errorCount' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='nbr'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>errorCount</short_description>
+				<long_description>errorCount</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>
+		<group name="g_cachedEntriesCount" switch="0">
+			<short_description>cachedEntriesCount</short_description>
+			<long_description>Array</long_description>
+			<element name='cachedEntriesCount' parameter_type='output' data_type='integer'
+			gui_basic='1' range_type='0' units='nbr'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>cachedEntriesCount</short_description>
+				<long_description>cachedEntriesCount</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>	
+		<group name="g_bytesReceived" switch="0">
+			<short_description>bytesReceived</short_description>
+			<long_description>Array</long_description>
+			<element name='bytesReceived' parameter_type='output' data_type='decimal'
+			gui_basic='1' range_type='0' units='MB'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>bytesReceived</short_description>
+				<long_description>bytesReceived</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>
+		<group name="g_bytesSent" switch="0">
+			<short_description>bytesSent</short_description>
+			<long_description>Array</long_description>
+			<element name='bytesSent' parameter_type='output' data_type='decimal'
+			gui_basic='1' range_type='0' units='MB'>
+				<control_options>size:8</control_options>
+				<default_value></default_value>
+				<short_description>bytesSent</short_description>
+				<long_description>bytesSent</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>
+		<group name="timerresult" switch="0">
+			<short_description/>
+			<long_description/>
+			<element name="timer" parameter_type="output" data_type="integer" gui_basic="0" range_type="0" units="ms">
+				<control_options>size:8</control_options>
+				<default_value/>
+				<short_description>Response time</short_description>
+				<long_description>Response time in ms</long_description>
+				<validation_rule/>
+				<error_message/>
+				<gui_type>
+					<integer/>
+				</gui_type>
+			</element>
+		</group>	
+	</elements>
+	<help>When running a custom script check, note that the second parameter is always the name of the assigned host.
+	The script that's executed should output each variable on it's own line, otherwise up.time won't be able to capture the appropriate information.</help>
+</uptime>
