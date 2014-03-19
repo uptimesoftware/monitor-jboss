@@ -1,8 +1,0 @@
-name=JBoss Monitor
-version=2.2
-platforms=windows linux solaris
-description=Monitor JBoss 5 and 6 performance metrics.
-requiresAgentScript=false
-restartCore=false
-onUpgradeRemoveFiles=true
-onUpgradeRemoveMonitors=false
